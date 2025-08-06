@@ -8,6 +8,13 @@ function App() {
   const name = '이상용';
   const number = 0;
   const unVar = undefined;
+  const style = {
+    backgroundColor: 'black', //background-color
+    color: 'aqua',
+    fontSize: '48px', // font-size
+    fontWeight: 'bold', //font-weight
+    padding: 16, // 기본 px
+  };
   return (
     // jsx 기본 문법(기존 HTML 형식으로 사용 가능 -> 변환을 자동으로 해준다. ),
     // vs jsx 기본 문법 사용 안하면, 모양? 실제 동작은,
@@ -43,6 +50,10 @@ function App() {
       {number && <h4>0 값 </h4>}
       <h3>7 undefined ,OR(||)확인해보기, </h3>
       {unVar || '값 : undefined'}
+      <h3 style={style}>
+        8 인라인 스타일링 , 기존 : background-color, 변경 : backgroundColor
+      </h3>
+      <h3 className="react">9 class 대신 className 속성을 사용함.</h3>
     </>
     // </Fragment>
     // </div>
