@@ -6,6 +6,8 @@ function App() {
   // 감싸 주어야하나?
   // Virtrual DOM에서 컴포넌트 변화를 감지할 때, 효율적으로 비교하기 위해서.
   const name = '이상용';
+  const number = 0;
+  const unVar = undefined;
   return (
     // jsx 기본 문법(기존 HTML 형식으로 사용 가능 -> 변환을 자동으로 해준다. ),
     // vs jsx 기본 문법 사용 안하면, 모양? 실제 동작은,
@@ -37,6 +39,10 @@ function App() {
       {name === '이상용' ? <h4>이상용이 맞습니다.</h4> : null}
       <h3>5 && 연산자 이용해보기.</h3>
       {name === '이상용' && <h4>이상용이 맞습니다.</h4>}
+      <h3>6 falsy 값 0 확인해보기, </h3>
+      {number && <h4>0 값 </h4>}
+      <h3>7 undefined ,OR(||)확인해보기, </h3>
+      {unVar || '값 : undefined'}
     </>
     // </Fragment>
     // </div>
