@@ -33,3 +33,4 @@ yarn run dev
 	2. 즉각적인 HMR (Hot Module Replacement)
 	3. 최적화된 프로덕션 빌드
 	4. 간단한 설정과 사용법
+1
