@@ -11,6 +11,7 @@ class EventPractice extends Component {
       <>
         <h1>이벤트 연습</h1>
         <h2>onChange 연습 해보기. </h2>
+        <h3>{this.state.message}</h3>
         <input
           type="text"
           name="message"
