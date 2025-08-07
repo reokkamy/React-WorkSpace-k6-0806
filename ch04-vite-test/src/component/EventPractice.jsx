@@ -10,7 +10,7 @@ class EventPractice extends Component {
     return (
       <>
         <h1>이벤트 연습</h1>
-        <h2>onChange 연습 해보기. </h2>
+        <h2>1 onChange 연습 해보기. </h2>
         <h3>{this.state.message}</h3>
         <input
           type="text"
@@ -22,6 +22,18 @@ class EventPractice extends Component {
             this.setState({ message: e.target.value });
           }}
         />
+
+        <h2>2 onClick 연습 해보기. </h2>
+        <button
+          onClick={() => {
+            alert(this.state.message);
+            this.setState({
+              message: "",
+            });
+          }}
+        >
+          확인
+        </button>
       </>
     );
   }
