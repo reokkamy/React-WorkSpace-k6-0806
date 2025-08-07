@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class EventPractice extends Component {
   // 초깃값
   state = {
+    username: "",
     message: "",
   };
 
@@ -15,12 +16,17 @@ class EventPractice extends Component {
   // 이벤트 핸들링 따로 정의,
   handleChange(e) {
     this.setState({
-      message: e.target.value,
+      // 변경전
+      //   message: e.target.value,
+      // 변경 후,
+      //input, 2개가 될 예정, 각 input 이름에 해당하는 객체를 불러와서 사용하기.
+      [e.target.name]: e.target.value,
     });
   }
   handleClick() {
-    alert(this.state.message);
+    alert(this.state.username + ":" + this.state.message);
     this.setState({
+      username: "",
       message: "",
     });
   }
@@ -30,7 +36,8 @@ class EventPractice extends Component {
       <>
         <h1>이벤트 연습</h1>
         <h2>1 onChange 연습 해보기. </h2>
-        <h3>{this.state.message}</h3>
+        <h3>message : {this.state.message}</h3>
+        <h3>username : {this.state.username}</h3>
         <input
           type="text"
           name="message"
@@ -42,6 +49,14 @@ class EventPractice extends Component {
           //     this.setState({ message: e.target.value });
           //   }}
           // 방법2, 따로 분리 설정.
+          onChange={this.handleChange}
+        />
+
+        <input
+          type="text"
+          name="username"
+          placeholder="사용자명 입력하기"
+          value={this.state.username} // getter, state 객체 안의 message 조회
           onChange={this.handleChange}
         />
 
