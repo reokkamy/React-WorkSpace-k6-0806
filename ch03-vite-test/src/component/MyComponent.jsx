@@ -13,10 +13,12 @@
 // 클래스형 컴포넌트 : rcc
 import React from "react";
 
-const MyComponent = () => {
+const MyComponent = (props) => {
   return (
     <>
-      <div>나의 첫 함수형 컴포넌트</div>
+      <div>나의 첫 함수형 컴포넌트 불러오기</div>
+      <h2>매개변수로 정의한 props(속성들) 를 사용하기, </h2>
+      <h3>props 객체이 있는 이름을 사용해보기 : {props.name}</h3>
     </>
   );
 };

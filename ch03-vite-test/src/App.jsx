@@ -21,8 +21,16 @@ class App extends Component {
       <>
         <h1>ch3 컴포넌트 개념</h1>
         <div className="react">{name}</div>
-        <h2>MyComponent 불러오기!</h2>
+        <h2>
+          현재: App.jsx , 1 부모 컴포넌트에서, 자식 컴포넌트 MyComponent
+          사용하기(불러오기)!
+        </h2>
         <MyComponent />
+        <h2>
+          현재: App.jsx , 2 부모 컴포넌트에서, 자식 컴포넌트 MyComponent props
+          전달해보기.{" "}
+        </h2>
+        <MyComponent name="이상용" />
       </>
     );
   }
