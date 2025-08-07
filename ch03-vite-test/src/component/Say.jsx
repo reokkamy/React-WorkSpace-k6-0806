@@ -21,6 +21,8 @@ const Say = () => {
         <h1 style={{ color }}>{message}</h1>
         {/* 색을 변경하는 버튼을 클릭시, 위에 있는 message 글자 색을 변경하기. */}
         <button onClick={onClickChageColorRed}>빨간색</button>
+        <button onClick={onClickChageColorBlue}>파란색</button>
+        <button onClick={onClickChageColorGreen}>초록색</button>
       </div>
     </>
   );
