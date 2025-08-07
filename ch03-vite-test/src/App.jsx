@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
 import MyComponent from "./component/MyComponent";
+import Counter from "./component/Counter";
 
 // 1. 함수형 컴포넌트
 // function App() {
@@ -36,20 +37,23 @@ class App extends Component {
           사용하기(불러오기)!
         </h2>
         <MyComponent />
-
         <h2>
           현재: App.jsx , 2 부모 컴포넌트에서, 자식 컴포넌트 MyComponent props
-          전달해보기.{" "}
+          전달하기
         </h2>
         <MyComponent name="이상용" />
-
         <h2>
-          현재: App.jsx , 3 부모 컴포넌트에서, 자식 컴포넌트 children 전달하기.
-          전달해보기.{" "}
+          현재: App.jsx , 3 부모 컴포넌트에서, 자식 컴포넌트(MyComponent)
+          children 전달하기.
         </h2>
         <MyComponent name="이상용3">
           children 자리에 값을 사용해서 전달하기.test
         </MyComponent>
+        <h2>
+          현재: App.jsx , 4 부모 컴포넌트에서, 자식 컴포넌트(Counter) state
+          전달하기.
+        </h2>
+        <Counter />;
       </>
     );
   }
