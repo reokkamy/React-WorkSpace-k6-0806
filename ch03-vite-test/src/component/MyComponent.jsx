@@ -23,4 +23,9 @@ const MyComponent = (props) => {
   );
 };
 
+//기본 props 설정. 디폴트 props 설정.
+MyComponent.defaultProps = {
+  nmae: "기본값 이름입니다.",
+};
+
 export default MyComponent;
