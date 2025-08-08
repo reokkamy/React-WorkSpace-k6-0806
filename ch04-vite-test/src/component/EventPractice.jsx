@@ -31,6 +31,13 @@ class EventPractice extends Component {
     });
   }
 
+  // 이벤트 추가.
+  handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      this.handleClick();
+    }
+  };
+
   render() {
     return (
       <>
@@ -50,6 +57,8 @@ class EventPractice extends Component {
           //   }}
           // 방법2, 따로 분리 설정.
           onChange={this.handleChange}
+          // 추가 키 이벤트 리스너, 엔터 키를 입력시, 클릭 하는 효과 주기.
+          onKeyPress={this.handleKeyPress}
         />
 
         <input
@@ -58,6 +67,8 @@ class EventPractice extends Component {
           placeholder="사용자명 입력하기"
           value={this.state.username} // getter, state 객체 안의 message 조회
           onChange={this.handleChange}
+          // 추가 키 이벤트 리스너, 엔터 키를 입력시, 클릭 하는 효과 주기.
+          onKeyPress={this.handleKeyPress}
         />
 
         <h2>2 onClick 연습 해보기. </h2>
