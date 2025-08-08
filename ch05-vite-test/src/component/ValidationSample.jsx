@@ -7,19 +7,6 @@ class ValidationSample extends Component {
     clicked: false,
     validated: false,
   };
-  // 이벤트 핸들러 추가,
-  handleChange = (e) => {
-    this.setState({
-      password: e.target.value,
-    });
-  };
-  handleButtonClick = () => {
-    // 여기서부터 작업하기.
-    this.setState({
-      clicked: true,
-      validated: this.state.password === "0000",
-    });
-  };
 
   // 특정 DOM 에 접근 하기 위해서, 어쩔수 없이,
   // ref 라는 속성을 사용하는 데, 1) 포커스 2) 스크롤 부분에 접근.
@@ -38,6 +25,21 @@ class ValidationSample extends Component {
   // 방법2
   handleFocus2 = () => {
     this.input2.current.focus();
+  };
+
+  // 이벤트 핸들러 추가,
+  handleChange = (e) => {
+    this.setState({
+      password: e.target.value,
+    });
+  };
+  handleButtonClick = () => {
+    // 여기서부터 작업하기.
+    this.setState({
+      clicked: true,
+      validated: this.state.password === "0000",
+    });
+    this.input1.focus();
   };
 
   render() {
