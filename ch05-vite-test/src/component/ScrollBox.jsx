@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 
 class ScrollBox extends Component {
+  // 맨밑으로 이동하는 이벤트 핸들러 ,
+  // 준비물 )
+  // 1) scrollHeight, : 안쪽 박스 높이 : 650px
+  // 2) clientHeight, : 바깥쪽 박스 높이 : 300px
+  // 3) scrollTop : 실제 스크롤의 위치, 상단, :0, 맨 하단: 350
+  scrollToBottom = () => {
+    const { scrollHeight, clientHeight } = this.box;
+    this.box.scrollTop = scrollHeight - clientHeight;
+  };
+
   render() {
     // out 영역
     const style = {
