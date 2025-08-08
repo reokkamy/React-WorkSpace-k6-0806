@@ -46,7 +46,7 @@ class ValidationSample extends Component {
     return (
       <>
         <div>
-          <h2>리액트에서, ref 테스트 1</h2>
+          <h2>1 리액트에서, ref 테스트 1</h2>
           <input
             type="text"
             value={this.state.password}

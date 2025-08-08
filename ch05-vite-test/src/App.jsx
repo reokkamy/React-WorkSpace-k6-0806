@@ -1,4 +1,5 @@
 import "./App.css";
+import ScrollBox from "./component/ScrollBox";
 import ValidationSample from "./component/ValidationSample";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <h1 className="react">ch5 리액트 버전으로 ref 확인해보기 </h1>
       <ValidationSample />
+      <ScrollBox />
     </>
   );
 }
