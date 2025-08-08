@@ -14,6 +14,8 @@ class App extends React.Component {
         <button onClick={() => this.ScrollBox.scrollToBottom()}>
           맨밑으로
         </button>
+        <button onClick={() => this.ScrollBox.scrollToTop()}>맨위로</button>
+        <button onClick={() => this.ScrollBox.scrollToMiddle()}>가운데</button>
       </>
     );
   }
