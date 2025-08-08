@@ -25,11 +25,19 @@ class ValidationSample extends Component {
   // ref 라는 속성을 사용하는 데, 1) 포커스 2) 스크롤 부분에 접근.
   // 포커스 용, 이벤트 핸들러 추가
 
-  // 방법2,
-  input = React.createRef();
+  // 방법1, 순서1, 설정.
+  input1 = null;
+  // 방법2, 순서1, 설정
+  input2 = React.createRef();
 
-  handleFocus = () => {
-    this.input.current.focus();
+  // 방법1
+  handleFocus1 = () => {
+    this.input1.focus();
+  };
+
+  // 방법2
+  handleFocus2 = () => {
+    this.input2.current.focus();
   };
 
   render() {
@@ -48,14 +56,23 @@ class ValidationSample extends Component {
                   : "failure"
                 : ""
             }
-            //방법1, 콜백 함수 사용, 태그에 접근하기.
-            // ref={(ref) => {
-            //   this.input = ref;
-            // }}
-            ref={this.input}
+            placeholder="포커스 방법1"
+            //방법1, 순서2, 적용, 콜백 함수 사용, 태그에 접근하기.
+            ref={(ref) => {
+              this.input1 = ref;
+            }}
+            // 방법2, 순서2, 적용
+            // ref={this.input}
+          />
+          <input
+            type="text"
+            placeholder="포커스 방법2"
+            // 방법2, 순서2, 적용
+            ref={this.input2}
           />
           <button onClick={this.handleButtonClick}>체크</button>
-          <button onClick={this.handleFocus}>포커스</button>
+          <button onClick={this.handleFocus1}>포커스1</button>
+          <button onClick={this.handleFocus2}>포커스2</button>
         </div>
       </>
     );
