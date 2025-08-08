@@ -30,7 +30,21 @@ const IterationSample = () => {
     setInputText("");
   };
 
-  const fruitList = names.map((name) => <li key={name.id}>{name.text}</li>);
+  // 제거하기. 순서1
+  const onRemove = (id) => {
+    //예시 삭제 할 id 4 번
+    // filter 함수는 , 전체 요소를 순회해서, 참인 결과인 요소들만으로 구성을 하는 새로운 배열 생성.
+    const nextNames = names.filter((name) => name.id !== id);
+    //  nextNames => [{ id: 1, text: "사과" },  { id: 2, text: "포도" },  { id: 3, text: "바나나" },]
+    setNames(nextNames);
+  };
+
+  const fruitList = names.map((name) => (
+    // 제거하기. 순서2
+    <li key={name.id} onDoubleClick={() => onRemove(name.id)}>
+      {name.text}
+    </li>
+  ));
   return (
     <>
       <input value={InputText} onChange={onChange} />
