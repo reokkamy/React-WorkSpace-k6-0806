@@ -7,7 +7,12 @@ const Info = () => {
   useEffect(() => {
     console.log('렌더링 완료');
     console.log({ name, email });
-  }, []);
+    //뒷정리 함수 추가
+    return () => {
+      console.log('뒷정리 함수 호출 ');
+      console.log(name);
+    };
+  }, [email]);
 
   //화면에 input 태그에서 값이 변경 할 때 마다, state 의 값을 변경 해주는
   // onChangeXXX , 이벤트 핸들러 추가하기.
