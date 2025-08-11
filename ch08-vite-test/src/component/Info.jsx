@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Info = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    console.log('렌더링 완료');
+    console.log({ name, email });
+  }, []);
 
   //화면에 input 태그에서 값이 변경 할 때 마다, state 의 값을 변경 해주는
   // onChangeXXX , 이벤트 핸들러 추가하기.
