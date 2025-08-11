@@ -3,6 +3,7 @@ import Counter from './component/Counter.jsx';
 import Info from './component/Info.jsx';
 import { useState } from 'react';
 import CountUseReducer from './component/CountUseReducer.jsx';
+import InfoUseReducer from './component/InfoUseReducer.jsx';
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -28,6 +29,9 @@ function App() {
 
         <h2>3 useReducer , CounteUseReducer , 상태 관리 hook 사용해보기,</h2>
         <CountUseReducer />
+
+        <h2>3-2 useReducer , InfoUseReducer , 상태 관리 hook 사용해보기,</h2>
+        <InfoUseReducer />
       </div>
     </>
   );
