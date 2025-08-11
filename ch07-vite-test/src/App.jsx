@@ -1,4 +1,5 @@
 import "./App.css";
+import ErrorBoundary from "./component/ErrorBoundary";
 import LifeCycleSample from "./component/LifeCycleSample";
 import React, { Component } from "react";
 
@@ -23,10 +24,12 @@ class App extends Component {
             ch7 클래스 컴포넌트 생명주기(마운트, 업데이트, 언마운트)
           </h1>
           {this.state.show && (
-            <LifeCycleSample
-              color={this.state.color}
-              onRequestUnmount={this.handleUnmount}
-            />
+            <ErrorBoundary>
+              <LifeCycleSample
+                color={this.state.color}
+                onRequestUnmount={this.handleUnmount}
+              />
+            </ErrorBoundary>
           )}
         </div>
       </>

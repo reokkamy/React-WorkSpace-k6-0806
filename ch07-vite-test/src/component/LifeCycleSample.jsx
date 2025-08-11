@@ -73,6 +73,8 @@ class LifeCycleSample extends Component {
     return (
       <>
         <div>
+          {/* 없는 값에 접근해서, 임의로 오류 발생시키기 */}
+          {/* {this.props.missing.value} */}
           <h1 style={style} ref={(ref) => (this.myRef = ref)}>
             this.state.number : {this.state.number}
           </h1>
