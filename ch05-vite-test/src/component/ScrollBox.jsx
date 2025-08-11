@@ -43,6 +43,7 @@ class ScrollBox extends Component {
       <>
         <h2>2 스크롤을 이용한 ref로 접근하기 </h2>
         <div
+          // id = "box"
           style={style}
           // ref 순서1,
           // 설정하기, 요소를 선택하기.
