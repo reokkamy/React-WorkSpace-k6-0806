@@ -43,6 +43,12 @@ class LifeCycleSample extends Component {
       number: this.state.number + 1,
     });
   };
+  // 수동으로 언마운트 호출 테스트
+  handleUnmountClick = () => {
+    if (this.props.onRequestUnmount) {
+      this.props.onRequestUnmount();
+    }
+  };
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("업데이트 - 순서4 getSnapshotBeforeUpdate");
@@ -72,6 +78,7 @@ class LifeCycleSample extends Component {
           </h1>
           <p>this.state.color : {this.state.color}</p>
           <button onClick={this.handleClick}>더하기</button>
+          <button onClick={this.handleUnmountClick}>언마운트(내부요청)</button>
         </div>
       </>
     );
