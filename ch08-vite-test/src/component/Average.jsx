@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 // 화면을 그려주는 기능,
 // 연산한다.(실제로 예를 무거운 동작을 한다. 예시로 단순 계산)
@@ -26,6 +26,9 @@ const Average = () => {
     setList(nextList);
     setNumber('');
   };
+
+  // 평균을 구할 때, useMemo 이용해보기.
+  const avg = useMemo(() => getAverage(list), [list]);
   return (
     <div>
       <input value={number} onChange={onChange} />
@@ -36,7 +39,8 @@ const Average = () => {
         ))}
       </ul>
       <div>
-        <b>평균값: </b> {getAverage(list)}
+        {/*<b>평균값: </b> {getAverage(list)}*/}
+        <b>평균값: </b> avg
       </div>
     </div>
   );
