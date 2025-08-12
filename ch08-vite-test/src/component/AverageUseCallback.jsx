@@ -25,6 +25,7 @@ const AverageUseCallback = () => {
   // 후
   const onChange = useCallback((e) => {
     setNumber(e.target.value);
+    console.log('onChange : useCallback ');
   }, []);
 
   // 변경 전
@@ -39,6 +40,7 @@ const AverageUseCallback = () => {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
       setNumber('');
+      console.log('onInsert : useCallback ');
     },
     [number, list],
   );
