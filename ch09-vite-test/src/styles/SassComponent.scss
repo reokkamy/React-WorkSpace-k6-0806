@@ -6,6 +6,8 @@ $green: #40c057;
 $blue: #339af0;
 $indigo: #5c7cfa;
 $violet: #7950f2;
+$gray: #777b74;
+
 //실습1
 $pink: #fc19d2;
 
@@ -30,22 +32,23 @@ $pink: #fc19d2;
   display: flex;
 //  // 추가, 외부 기능, 컬러 선택,
 //  // 미디어 반응형 쉽게 해주는 기능
-//  //background: $oc-gray-2;
+//  background: $oc-gray-2;
+//  background: $gray;
 //
 //  @include media('<768px') {
 //    //background: $oc-gray-9;
 //  }
 
   .box {
-
+    //background: $red;
     //실습3, 첫번째요소, 마지막 요소, 각각 색상 표기.
-    &:first-child {
-      background: $yellow;
-    }
-
-    &:last-child {
-      background: $green;
-    }
+    //&:first-child {
+    //  background: $yellow;
+    //}
+    //
+    //&:last-child {
+    //  background: $green;
+    //}
 
     background: red;
     cursor: pointer;
