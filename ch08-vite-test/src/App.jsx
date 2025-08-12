@@ -5,6 +5,7 @@ import { useState } from 'react';
 import CountUseReducer from './component/CountUseReducer.jsx';
 import InfoUseReducer from './component/InfoUseReducer.jsx';
 import Average from './component/Average.jsx';
+import AverageUseCallback from './component/AverageUseCallback.jsx';
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -34,8 +35,13 @@ function App() {
         <h2>3-2 useReducer , InfoUseReducer , 상태 관리 hook 사용해보기,</h2>
         <InfoUseReducer />
 
-        <h2>4 useMemo , Average , 무거운 연산을 기억해서 재사용해보자.,</h2>
+        <h2>
+          4 useMemo , Average , 무거운 연산의 결과값을 기억해서 재사용해보자.,
+        </h2>
         <Average />
+
+        <h2>5 useCallback , Average , 함수를 기억해서 재사용해보자.,</h2>
+        <AverageUseCallback />
       </div>
     </>
   );
