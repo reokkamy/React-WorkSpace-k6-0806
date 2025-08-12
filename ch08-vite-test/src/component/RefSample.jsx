@@ -10,7 +10,14 @@ const RefSample = () => {
   const printId = () => {
     console.log('id의 현재 값 : ', id.current);
   };
-  return <div>refSample</div>;
+  return (
+    <div>
+      <h2>refSample , 화면 업데이트에 영향을 주지 않는 값 , useRef</h2>
+      <h3>현재 값 : {id.current}</h3>
+      <button onClick={() => setId(id.current + 1)}>ID 증가</button>
+      <button onClick={printId}>콘솔 출력</button>
+    </div>
+  );
 };
 
 export default RefSample;
