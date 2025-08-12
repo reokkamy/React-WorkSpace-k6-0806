@@ -40,7 +40,7 @@ const Average = () => {
       </ul>
       <div>
         {/*<b>평균값: </b> {getAverage(list)}*/}
-        <b>평균값: </b> avg
+        <b>평균값: </b> {avg}
       </div>
     </div>
   );
