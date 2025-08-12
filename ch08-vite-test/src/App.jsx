@@ -6,6 +6,8 @@ import CountUseReducer from './component/CountUseReducer.jsx';
 import InfoUseReducer from './component/InfoUseReducer.jsx';
 import Average from './component/Average.jsx';
 import AverageUseCallback from './component/AverageUseCallback.jsx';
+import RefSample from './component/RefSample.jsx';
+import AverageUseRef from './component/AverageUseRef.jsx';
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -42,6 +44,14 @@ function App() {
 
         <h2>5 useCallback , Average , 함수를 기억해서 재사용해보자.,</h2>
         <AverageUseCallback />
+
+        <h2>
+          6 useRef , AverageUseRef ,특정 돔(태그) 직접 접근, 추가 후 포커스 확인
+        </h2>
+        <AverageUseRef />
+
+        <h2>7 useRef , RefSample ,리렌더링에 영향을 받지 않는 값으로 사용됨</h2>
+        <RefSample />
       </div>
     </>
   );
