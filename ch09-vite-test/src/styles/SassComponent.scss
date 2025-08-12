@@ -6,6 +6,8 @@
 // 사용법
  @import 'include-media/dist/_include-media';
  @import 'open-color/open-color';
+// 공식 문서에서 사용하는 컬러표 확인
+//https://github.com/yeun/open-color
 
 :local .wrapperSassComponent {
   background: black;
@@ -22,7 +24,7 @@
   background: $gray;
 
   @include media('<768px') {
-    background: $oc-gray-9;
+    background: $oc-teal-6;
   }
 
   .box {

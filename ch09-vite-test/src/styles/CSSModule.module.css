@@ -1,0 +1,12 @@
+.wrapper {
+    background: black;
+    padding: 1rem;
+    color: white;
+    font-size: 2rem;
+}
+
+/*글로벌 css 작성해보기*/
+:global .something{
+    font-weight: 800;
+    color: aqua;
+}
