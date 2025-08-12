@@ -47,10 +47,12 @@ const Button = styled.button`
 `;
 
 const StyledComponent = () => {
-  <Box color="black">
-    <Button>Hello</Button>
-    <Button inverted={false}>오늘 점심 뭐 먹지?</Button>
-  </Box>;
+  return (
+    <Box color="yellow">
+      <Button>Hello</Button>
+      <Button inverted={false}>오늘 점심 뭐 먹지?</Button>
+    </Box>
+  );
 };
 
 export default StyledComponent;
