@@ -35,6 +35,9 @@ const Average = () => {
           <li key={index}>{value}</li>
         ))}
       </ul>
+      <div>
+        <b>평균값: </b> {getAverage(list)}
+      </div>
     </div>
   );
 };
