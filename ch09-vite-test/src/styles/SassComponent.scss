@@ -30,10 +30,10 @@ $pink: #fc19d2;
   display: flex;
   // 추가, 외부 기능, 컬러 선택,
   // 미디어 반응형 쉽게 해주는 기능
-  background: $oc-gray-2;
+  //background: $oc-gray-2;
 
   @include media('<768px') {
-    background: $oc-gray-9;
+    //background: $oc-gray-9;
   }
 
   .box {
