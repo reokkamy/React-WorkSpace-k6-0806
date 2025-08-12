@@ -1,6 +1,7 @@
 import './App.css';
 import SassComponent from './components/SassComponent.jsx';
 import CSSModule from './components/CSSModule.jsx';
+import StyledComponent from './components/StyledComponent.jsx';
 
 function App() {
   return (
@@ -11,6 +12,12 @@ function App() {
 
       <h2>CSSMoudle 문법을 이용한 중복되지않는 클래스명 사용하기. </h2>
       <CSSModule />
+
+      <h3>
+        StyledComponent 문법을 이용한 따로 css, scss 파일없이 컴포넌트 자체에서
+        css 구현 가능.{' '}
+      </h3>
+      <StyledComponent />
     </>
   );
 }
