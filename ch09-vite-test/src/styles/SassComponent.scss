@@ -3,6 +3,10 @@
 // open-color , include-media : 색상 팔레트 쉽게 쓰기, 미디어쿼리 쉽게 이용하는 도구.
 //  yarn add open-color include-media
 
+// 사용법
+ @import 'include-media/dist/_include-media';
+ @import 'open-color/open-color';
+
 :local .wrapperSassComponent {
   background: black;
   padding: 2rem;
@@ -14,12 +18,12 @@
   display: flex;
 //  // 추가, 외부 기능, 컬러 선택,
 //  // 미디어 반응형 쉽게 해주는 기능
-//  background: $oc-gray-2;
-//  background: $gray;
-//
-//  @include media('<768px') {
-//    //background: $oc-gray-9;
-//  }
+  background: $oc-gray-2;
+  background: $gray;
+
+  @include media('<768px') {
+    background: $oc-gray-9;
+  }
 
   .box {
     //background: $red;
