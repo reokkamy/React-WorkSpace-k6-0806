@@ -4,6 +4,19 @@ import TodoInsert from './component/TodoInsert.jsx';
 import TodoList from './component/TodoList.jsx';
 import { useCallback, useRef, useState } from 'react';
 
+//더미 데이터 2500개 만드는 함수
+function createBulkTodos() {
+  const array = [];
+  for (let i = 1; i <= 2500; i++) {
+    array.push({
+      id: i,
+      text: `할일 ${i}`,
+      checked: false,
+    });
+  }
+  return array;
+}
+
 function App() {
   const [todos, setTodos] = useState([
     { id: 1, text: '오늘 점심 뭐 먹지1', checked: true },
