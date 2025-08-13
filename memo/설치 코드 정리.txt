@@ -3,3 +3,12 @@ yarn add styled-components
 yarn add open-color include-media
 
 yarn add sass
+
+프로젝트생성및 라이브러리설치
+yarn add sass classnames react-icons
+
+yarn add classnames
+
+크롬웹스토어React Developer Tools 확장프로그램
+
+yarn add react-virtualized

@@ -7,7 +7,7 @@ import { useCallback, useRef, useState } from 'react';
 //더미 데이터 2500개 만드는 함수
 function createBulkTodos() {
   const array = [];
-  for (let i = 1; i <= 2500; i++) {
+  for (let i = 1; i <= 5000; i++) {
     array.push({
       id: i,
       text: `할일 ${i}`,
@@ -30,7 +30,7 @@ function App() {
 
   // useRef 이용해서, 렌더링에 영향을 받지 않는 값을 사용.
   // const nextId = useRef(4);
-  const nextId = useRef(2501);
+  const nextId = useRef(5001);
   // 글쓰기 함수 기능
   const onInsert = useCallback(
     (text) => {
