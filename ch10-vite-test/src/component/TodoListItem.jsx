@@ -8,7 +8,8 @@ import {
 //<MdCheckBox />
 // <MdRemoveCircle />
 import '../styles/TodoListItem.scss';
-const TodoListItem = () => {
+const TodoListItem = ({ todo }) => {
+  const { text, checked } = todo;
   return (
     <div className="TodoListItem">
       <div className="checkbox">
