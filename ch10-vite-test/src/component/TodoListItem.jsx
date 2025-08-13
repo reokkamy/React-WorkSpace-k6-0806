@@ -10,8 +10,8 @@ import {
 import '../styles/TodoListItem.scss';
 import cn from 'classnames';
 
-const TodoListItem = ({ todo }) => {
-  const { text, checked } = todo;
+const TodoListItem = ({ todo, onRemove }) => {
+  const { id, text, checked } = todo;
   return (
     <div className="TodoListItem">
       {/*classnames , cn 별칭 지정하고, 조건부 렌더링 적용하기.*/}
@@ -19,8 +19,7 @@ const TodoListItem = ({ todo }) => {
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
         <div className="text">{text}</div>
       </div>
-      <div className="remove">
-        {' '}
+      <div className="remove" onClick={() => onRemove(id)}>
         <MdRemoveCircleOutline />
       </div>
     </div>
