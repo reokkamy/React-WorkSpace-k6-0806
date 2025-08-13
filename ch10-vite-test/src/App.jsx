@@ -51,12 +51,34 @@ function App() {
     [todos],
   );
 
+  // 수정하기.
+  const onToggle = useCallback(
+    // 예시 : todos = [
+    //   { id: 1, text: '오늘 점심 뭐 먹지1', checked: true },
+    //   { id: 2, text: '오늘 점심 뭐 먹지2', checked: false },
+    //   { id: 3, text: '오늘 점심 뭐 먹지3', checked: true },
+    // ]
+    // 수정할 id : 3번
+    // 수정 할 아이디 : id =3 번 수정
+    // 순회 : todo.id 1 === 3 (거짓) => todo(기존꺼 유지) 수정 안함
+    // 순회 : todo.id 2 === 3 (거짓) => todo(기존꺼 유지) 수정 안함
+    // 순회 : todo.id 3 === 3 (참) => {...todo, checked: !todo.checked} 수정함
+    (id) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+        ),
+      );
+    },
+    [todos],
+  );
+
   return (
     <>
       <h1 className="react">ch10 일정 관리 미니 프로젝트 </h1>
       <TodoTemplate>
         <TodoInsert onInsert={onInsert} />
-        <TodoList todos={todos} onRemove={onRemove} />
+        <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
       </TodoTemplate>
     </>
   );
