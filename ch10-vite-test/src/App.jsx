@@ -18,14 +18,19 @@ function createBulkTodos() {
 }
 
 function App() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: '오늘 점심 뭐 먹지1', checked: true },
-    { id: 2, text: '오늘 점심 뭐 먹지2', checked: false },
-    { id: 3, text: '오늘 점심 뭐 먹지3', checked: true },
-  ]);
+  // 원본, 일정 관리 앱의 기본 더미 데이터,
+  // const [todos, setTodos] = useState([
+  //   { id: 1, text: '오늘 점심 뭐 먹지1', checked: true },
+  //   { id: 2, text: '오늘 점심 뭐 먹지2', checked: false },
+  //   { id: 3, text: '오늘 점심 뭐 먹지3', checked: true },
+  // ]);
+
+  // 성능 측정에 사용하는 더미 데이터.
+  const [todos, setTodos] = useState(createBulkTodos);
 
   // useRef 이용해서, 렌더링에 영향을 받지 않는 값을 사용.
-  const nextId = useRef(4);
+  // const nextId = useRef(4);
+  const nextId = useRef(2501);
   // 글쓰기 함수 기능
   const onInsert = useCallback(
     (text) => {
