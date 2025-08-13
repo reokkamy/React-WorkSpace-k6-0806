@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "prettier": "3.6.2"
+  },
+  "dependencies": {
+    "sass": "^1.90.0"
   }
 }
