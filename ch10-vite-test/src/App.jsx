@@ -7,7 +7,7 @@ import { useCallback, useRef, useState } from 'react';
 //더미 데이터 2500개 만드는 함수
 function createBulkTodos() {
   const array = [];
-  for (let i = 1; i <= 2500; i++) {
+  for (let i = 1; i <= 5000; i++) {
     array.push({
       id: i,
       text: `할일 ${i}`,
@@ -30,7 +30,7 @@ function App() {
 
   // useRef 이용해서, 렌더링에 영향을 받지 않는 값을 사용.
   // const nextId = useRef(4);
-  const nextId = useRef(2501);
+  const nextId = useRef(5001);
   // 글쓰기 함수 기능
   const onInsert = useCallback(
     (text) => {
@@ -40,7 +40,10 @@ function App() {
         checked: false,
       };
       // 기존 배열에 todos에 새로운 요소를 추가 후 새배열을 생성.
-      setTodos(todos.concat(todo));
+      // setTodos(todos.concat(todo));
+      // 성능 최적화 방법1, 함수 형태로 변경.
+      // 변경 후.
+      setTodos((todos) => todos.concat(todo));
       nextId.current += 1;
     },
     [todos],
@@ -64,7 +67,10 @@ function App() {
       //   { id: 1, text: '오늘 점심 뭐 먹지1', checked: true },
       //     { id: 2, text: '오늘 점심 뭐 먹지2', checked: false },
       //   ]
-      setTodos(todos.filter((todo) => todo.id !== id));
+      // setTodos(todos.filter((todo) => todo.id !== id));
+      // 성능 최적화 방법1, 함수 형태로 변경.
+      // 변경 후.
+      setTodos((todos) => todos.filter((todo) => todo.id !== id));
     },
     [todos],
   );
@@ -83,9 +89,15 @@ function App() {
     // 순회 : todo.id 3 === 3 (참) => {...todo, checked: !todo.checked} 수정함
     (id) => {
       setTodos(
-        todos.map((todo) =>
-          todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-        ),
+        // todos.map((todo) =>
+        //   todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+        // ),
+        // 성능 최적화 방법1, 함수 형태로 변경.
+        // 변경 후.
+        (todos) =>
+          todos.map((todo) =>
+            todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+          ),
       );
     },
     [todos],
