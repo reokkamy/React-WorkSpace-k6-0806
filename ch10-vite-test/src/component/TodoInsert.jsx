@@ -4,6 +4,7 @@ import React from 'react';
 // 예시) mdadd, schedule
 // 사용 방법, 1) 임포트 2) 사용하고 싶은 곳에 컴포넌트 위치 시키기
 import { MdAdd } from 'react-icons/md';
+import '../styles/TodoInsert.scss';
 
 const TodoInsert = () => {
   return (
