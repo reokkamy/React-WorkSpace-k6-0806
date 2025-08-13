@@ -6,19 +6,22 @@ import {
 } from 'react-icons/md';
 //<MdCheckBoxOutlineBlank />
 //<MdCheckBox />
-// <MdRemoveCircle />
+// <MdRemoveCircleOutline />
 import '../styles/TodoListItem.scss';
+import cn from 'classnames';
+
 const TodoListItem = ({ todo }) => {
   const { text, checked } = todo;
   return (
     <div className="TodoListItem">
-      <div className="checkbox">
-        <MdCheckBoxOutlineBlank />
-        <div className="text">할 일</div>
+      {/*classnames , cn 별칭 지정하고, 조건부 렌더링 적용하기.*/}
+      <div className={cn('checkbox', { checked })}>
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <div className="text">{text}</div>
       </div>
       <div className="remove">
         {' '}
-        <MdCheckBoxOutlineBlank />
+        <MdRemoveCircleOutline />
       </div>
     </div>
   );

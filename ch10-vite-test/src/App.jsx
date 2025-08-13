@@ -7,7 +7,7 @@ import { useState } from 'react';
 function App() {
   const [todos, setTodos] = useState([
     { id: 1, text: '오늘 점심 뭐 먹지1', checked: true },
-    { id: 2, text: '오늘 점심 뭐 먹지2', checked: true },
+    { id: 2, text: '오늘 점심 뭐 먹지2', checked: false },
     { id: 3, text: '오늘 점심 뭐 먹지3', checked: true },
   ]);
   return (
