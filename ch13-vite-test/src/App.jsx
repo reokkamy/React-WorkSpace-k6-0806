@@ -11,6 +11,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        {/*경로에서, :username 이 부분이 파라미터 정보 전달, 어디에 ? <Profile />
+          받는 컴포넌트에서 useParams() 훅스를 이용해서, 정보를 가져오기.
+          */}
         <Route path="/profile/:username" element={<Profile />} />
       </Routes>
     </>
