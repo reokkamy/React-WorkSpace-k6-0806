@@ -12,3 +12,5 @@ yarn add classnames
 크롬웹스토어React Developer Tools 확장프로그램
 
 yarn add react-virtualized
+
+yarn add immer
