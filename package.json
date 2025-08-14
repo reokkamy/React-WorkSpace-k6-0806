@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "prettier": "3.6.2"
+  },
+  "dependencies": {
+    "immer": "^10.1.1"
   }
 }
