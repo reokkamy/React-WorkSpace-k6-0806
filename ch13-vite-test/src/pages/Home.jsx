@@ -4,7 +4,17 @@ const Home = () => {
   return (
     <div>
       <h1>홈 화면</h1>
-      <Link to="/about">소개</Link>
+      <ul>
+        <li>
+          <Link to="/about">소개</Link>
+        </li>
+        <li>
+          <Link to="/profile/lsy">lsy 의 프로필 </Link>
+        </li>
+        <li>
+          <Link to="/profile/lsy2">lsy2 의 프로필 </Link>
+        </li>
+      </ul>
     </div>
   );
 };
