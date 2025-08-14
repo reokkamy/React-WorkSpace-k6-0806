@@ -37,7 +37,7 @@ const TodoListItem = ({ todo, onRemove, onToggle, style }) => {
   );
 };
 
-// 성능 최적화 효과1, React.memo 사용하기.
+// 성능 최적화 효과 방법1, React.memo 사용하기.
 // todo, onRemove, onToggle 변경되지 않으면 리렌더링을 하지 않음.
-export default TodoListItem;
-// export default React.memo(TodoListItem);
+// export default TodoListItem;
+export default React.memo(TodoListItem);

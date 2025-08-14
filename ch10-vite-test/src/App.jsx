@@ -40,10 +40,10 @@ function App() {
         checked: false,
       };
       // 기존 배열에 todos에 새로운 요소를 추가 후 새배열을 생성.
-      setTodos(todos.concat(todo));
+      // setTodos(todos.concat(todo));
       // 성능 최적화 방법2, 함수 형태로 변경.
       // 변경 후.
-      // setTodos((todos) => todos.concat(todo));
+      setTodos((todos) => todos.concat(todo));
       nextId.current += 1;
     },
     [todos],
@@ -67,10 +67,10 @@ function App() {
       //   { id: 1, text: '오늘 점심 뭐 먹지1', checked: true },
       //     { id: 2, text: '오늘 점심 뭐 먹지2', checked: false },
       //   ]
-      setTodos(todos.filter((todo) => todo.id !== id));
+      // setTodos(todos.filter((todo) => todo.id !== id));
       // 성능 최적화 방법2, 함수 형태로 변경.
       // 변경 후.
-      // setTodos((todos) => todos.filter((todo) => todo.id !== id));
+      setTodos((todos) => todos.filter((todo) => todo.id !== id));
     },
     [todos],
   );
@@ -89,15 +89,16 @@ function App() {
     // 순회 : todo.id 3 === 3 (참) => {...todo, checked: !todo.checked} 수정함
     (id) => {
       setTodos(
-        todos.map((todo) =>
-          todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-        ),
-        // 성능 최적화 방법2, 함수 형태로 변경.
-        // 변경 후.
-        // (todos) =>
+        // 변경 전
         //   todos.map((todo) =>
         //     todo.id === id ? { ...todo, checked: !todo.checked } : todo,
         //   ),
+        // 성능 최적화 방법2, 함수 형태로 변경.
+        // 변경 후.
+        (todos) =>
+          todos.map((todo) =>
+            todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+          ),
       );
     },
     [todos],
