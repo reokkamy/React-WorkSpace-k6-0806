@@ -14,3 +14,21 @@ yarn add classnames
 yarn add react-virtualized
 
 yarn add immer
+
+리액트 라우터 설치
+yarn add react-router-dom
+
+
+
+공부순서
+props 와 children
+이벤트핸들링
+DOM에 이름 달기: ref 사용법 콜백 함수를 통한 ref 설정
+컴포넌트반복(배열,추가.삭제
+생명주기
+hooks 리듀서 메모 이펙트 유즈스테이트
+스타일링
+일정관리 웹 어플만들기
+성능최적화 dev툴스프로파일러
+immer
+리액트 라우터로 spa개념
