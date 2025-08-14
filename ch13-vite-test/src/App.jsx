@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Profile from './pages/Profile.jsx';
+import Articles from './pages/Articles.jsx';
+import Article from './pages/Article.jsx';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           받는 컴포넌트에서 useParams() 훅스를 이용해서, 정보를 가져오기.
           */}
         <Route path="/profile/:username" element={<Profile />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/article/:id" element={<Article />} />
       </Routes>
     </>
   );
