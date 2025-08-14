@@ -1,6 +1,9 @@
 import { useRef, useCallback, useState } from 'react';
 import './App.css';
 
+// 순서1, Immer 도구 가져오기.
+import { produce } from 'immer';
+
 const App = () => {
   const nextId = useRef(1);
   const [form, setForm] = useState({ name: '', username: '' });
@@ -14,10 +17,17 @@ const App = () => {
     (e) => {
       const { name, value } = e.target;
       // Spread 연산자를 사용하여 form 객체를 업데이트합니다.
-      setForm({
-        ...form,
-        [name]: value,
-      });
+      // 변경전
+      // setForm({
+      //   ...form,
+      //   [name]: value,
+      // });
+      // 순서2, 변경 후, Immer 적용
+      setForm(
+        produce(form, (draft) => {
+          draft[name] = value;
+        }),
+      );
     },
     [form], // form 상태가 변경될 때마다 함수를 새로 만듭니다.
   );
@@ -44,10 +54,18 @@ const App = () => {
       };
 
       // Spread 연산자와 concat을 사용하여 새 항목을 배열에 추가합니다.
-      setData({
-        ...data,
-        array: data.array.concat(info),
-      });
+      // 변경전
+      // setData({
+      //   ...data,
+      //   array: data.array.concat(info),
+      // });
+
+      // 순서3, 임머 적용.
+      setData(
+        produce(form, (draft) => {
+          draft.array.push(info);
+        }),
+      );
 
       setForm({
         name: '',
@@ -63,10 +81,19 @@ const App = () => {
   const onRemove = useCallback(
     (id) => {
       // Spread 연산자와 filter를 사용하여 특정 항목을 배열에서 제거합니다.
-      setData({
-        ...data,
-        array: data.array.filter((info) => info.id !== id),
-      });
+      // 순서4, 임머 적용.
+      // setData({
+      //   ...data,
+      //   array: data.array.filter((info) => info.id !== id),
+      // });
+      setData(
+        produce(data, (draft) => {
+          const index = draft.array.findIndex((info) => info.id === id);
+          if (index !== -1) {
+            draft.array.splice(index, 1); // 해당 항목 삭제
+          }
+        }),
+      );
     },
     [data], // data 상태가 변경될 때 함수를 새로 만듭니다.
   );
