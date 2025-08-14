@@ -4,6 +4,10 @@ import {
   MdCheckBox,
   MdRemoveCircleOutline,
 } from 'react-icons/md';
+import { FcLike } from 'react-icons/fc';
+//<FcLike />
+import { FcLikePlaceholder } from 'react-icons/fc';
+//<FcLikePlaceholder />
 //<MdCheckBoxOutlineBlank />
 //<MdCheckBox />
 // <MdRemoveCircleOutline />
@@ -21,7 +25,8 @@ const TodoListItem = ({ todo, onRemove, onToggle, style }) => {
           className={cn('checkbox', { checked })}
           onClick={() => onToggle(id)}
         >
-          {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+          {/*{checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}*/}
+          {checked ? <FcLike /> : <FcLikePlaceholder />}
           <div className="text">{text}</div>
         </div>
         <div className="remove" onClick={() => onRemove(id)}>
@@ -34,5 +39,5 @@ const TodoListItem = ({ todo, onRemove, onToggle, style }) => {
 
 // 성능 최적화 효과1, React.memo 사용하기.
 // todo, onRemove, onToggle 변경되지 않으면 리렌더링을 하지 않음.
-// export default TodoListItem;
-export default React.memo(TodoListItem);
+export default TodoListItem;
+// export default React.memo(TodoListItem);
