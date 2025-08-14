@@ -3,6 +3,6 @@
     "prettier": "3.6.2"
   },
   "dependencies": {
-    "sass": "^1.90.0"
+    "immer": "^10.1.1"
   }
 }
