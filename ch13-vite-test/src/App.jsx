@@ -17,8 +17,14 @@ function App() {
           받는 컴포넌트에서 useParams() 훅스를 이용해서, 정보를 가져오기.
           */}
         <Route path="/profile/:username" element={<Profile />} />
-        <Route path="/articles" element={<Articles />} />
-        <Route path="/article/:id" element={<Article />} />
+        {/*방법1, 기본 라우팅,*/}
+        {/*<Route path="/articles" element={<Articles />} />*/}
+        {/*<Route path="/article/:id" element={<Article />} />*/}
+        {/*방법2, 중첩 라우팅, 라우팅 안에 라우팅 추가하기*/}
+        <Route path="/articles" element={<Articles />}>
+          {/*children 자리에 중첩 라우팅이 위치 하고 있음. */}
+          <Route path=":id" element={<Article />} />
+        </Route>
       </Routes>
     </>
   );
