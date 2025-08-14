@@ -3,11 +3,11 @@ import TodoTemplate from './component/TodoTemplate.jsx';
 import TodoInsert from './component/TodoInsert.jsx';
 import TodoList from './component/TodoList.jsx';
 import { useCallback, useRef, useState } from 'react';
-
+import { FcLike } from 'react-icons/fc';
 //더미 데이터 2500개 만드는 함수
 function createBulkTodos() {
   const array = [];
-  for (let i = 1; i <= 5000; i++) {
+  for (let i = 1; i <= 10000; i++) {
     array.push({
       id: i,
       text: `할일 ${i}`,
@@ -30,7 +30,7 @@ function App() {
 
   // useRef 이용해서, 렌더링에 영향을 받지 않는 값을 사용.
   // const nextId = useRef(4);
-  const nextId = useRef(5001);
+  const nextId = useRef(10001);
   // 글쓰기 함수 기능
   const onInsert = useCallback(
     (text) => {
@@ -40,10 +40,10 @@ function App() {
         checked: false,
       };
       // 기존 배열에 todos에 새로운 요소를 추가 후 새배열을 생성.
-      // setTodos(todos.concat(todo));
-      // 성능 최적화 방법1, 함수 형태로 변경.
+      setTodos(todos.concat(todo));
+      // 성능 최적화 방법2, 함수 형태로 변경.
       // 변경 후.
-      setTodos((todos) => todos.concat(todo));
+      // setTodos((todos) => todos.concat(todo));
       nextId.current += 1;
     },
     [todos],
@@ -67,10 +67,10 @@ function App() {
       //   { id: 1, text: '오늘 점심 뭐 먹지1', checked: true },
       //     { id: 2, text: '오늘 점심 뭐 먹지2', checked: false },
       //   ]
-      // setTodos(todos.filter((todo) => todo.id !== id));
-      // 성능 최적화 방법1, 함수 형태로 변경.
+      setTodos(todos.filter((todo) => todo.id !== id));
+      // 성능 최적화 방법2, 함수 형태로 변경.
       // 변경 후.
-      setTodos((todos) => todos.filter((todo) => todo.id !== id));
+      // setTodos((todos) => todos.filter((todo) => todo.id !== id));
     },
     [todos],
   );
@@ -89,15 +89,15 @@ function App() {
     // 순회 : todo.id 3 === 3 (참) => {...todo, checked: !todo.checked} 수정함
     (id) => {
       setTodos(
-        // todos.map((todo) =>
-        //   todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-        // ),
-        // 성능 최적화 방법1, 함수 형태로 변경.
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+        ),
+        // 성능 최적화 방법2, 함수 형태로 변경.
         // 변경 후.
-        (todos) =>
-          todos.map((todo) =>
-            todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-          ),
+        // (todos) =>
+        //   todos.map((todo) =>
+        //     todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+        //   ),
       );
     },
     [todos],
@@ -105,7 +105,9 @@ function App() {
 
   return (
     <>
-      <h1 className="react">ch10 일정 관리 미니 프로젝트 </h1>
+      <h1 className="react">
+        ch10 일정 관리 미니 프로젝트 <FcLike />
+      </h1>
       <TodoTemplate>
         <TodoInsert onInsert={onInsert} />
         <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
