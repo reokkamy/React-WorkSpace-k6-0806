@@ -5,10 +5,22 @@ import axios from 'axios';
 function App() {
   const [data, setData] = useState(null);
   // 샘플 데이터 받는 ,  onClick 설정 하기.
-  const onClick = () => {
-    axios.get('http://jsonplaceholder.typicode.com/todos/1').then((res) => {
-      setData(res.data);
-    });
+  // 비동기 함수 사용전  기본 문법
+  // const onClick = () => {
+  //   axios.get('http://jsonplaceholder.typicode.com/todos/1').then((res) => {
+  //     setData(res.data);
+  //   });
+  // };
+  // 비동기 함수 사용.
+  const onClick = async () => {
+    try {
+      const response = await axios.get(
+        'http://jsonplaceholder.typicode.com/todos/1',
+      );
+      setData(response.data);
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <>
