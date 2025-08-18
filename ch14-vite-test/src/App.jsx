@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import axios from 'axios';
+import NewsList from './components/NewsList.jsx';
 
 function App() {
   const [data, setData] = useState(null);
@@ -16,7 +17,7 @@ function App() {
     try {
       const response = await axios.get(
         // 'http://jsonplaceholder.typicode.com/todos/1',
-        'https://newsapi.org/v2/top-headlines?country=us&apiKey=본인키',
+        'https://newsapi.org/v2/top-headlines?country=us&apiKey=본인꺼',
       );
       setData(response.data);
     } catch (e) {
@@ -26,18 +27,19 @@ function App() {
   return (
     <>
       <h1 className="react">ch14 REST API 연결 연습</h1>
-      <div>
-        <button onClick={onClick}>샘플 데이터 불러오기 테스트</button>
-      </div>
-      <div>
-        {data && (
-          <textarea
-            rows={7}
-            value={JSON.stringify(data, null, 2)}
-            readOnly={true}
-          />
-        )}
-      </div>
+      {/*<div>*/}
+      {/*  <button onClick={onClick}>샘플 데이터 불러오기 테스트</button>*/}
+      {/*</div>*/}
+      {/*<div>*/}
+      {/*  {data && (*/}
+      {/*    <textarea*/}
+      {/*      rows={7}*/}
+      {/*      value={JSON.stringify(data, null, 2)}*/}
+      {/*      readOnly={true}*/}
+      {/*    />*/}
+      {/*  )}*/}
+      {/*</div>*/}
+      <NewsList />
     </>
   );
 }
