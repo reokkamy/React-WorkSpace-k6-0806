@@ -7,6 +7,8 @@ import Articles from './pages/Articles.jsx';
 import Article from './pages/Article.jsx';
 import Layout from './layout/Layout.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Login from './pages/Login.jsx';
+import MyPage from './pages/MyPage.jsx';
 
 function App() {
   return (
@@ -33,6 +35,10 @@ function App() {
           {/*children 자리에 중첩 라우팅이 위치 하고 있음. */}
           <Route path=":id" element={<Article />} />
         </Route>
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/mypage" element={<MyPage />} />
+
         {/**  아무 텍스트나 매칭하고, 이 라우트에서, 맨 마지막에 위치에서,*/}
         {/*상위의 모든 경로를 찾다가 , 일치하는 경로가 없으면, 여기로 오겠다.*/}
         <Route path="*" element={<NotFound />} />
