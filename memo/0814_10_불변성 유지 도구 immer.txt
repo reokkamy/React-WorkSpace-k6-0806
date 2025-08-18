@@ -49,6 +49,9 @@ const originalCart = {
   userInfo: { // 중첩된 객체
     name: '김패션',
     grade: 'VIP'
+     testObject : {// 중첩된 객체2
+        name2 : "test2"
+     }
   },
   items: ['👕', '👖'] // 중첩된 배열
 };
@@ -78,6 +81,10 @@ const copiedCart = {
   ...originalCart, // 1. 최상위 객체를 얕은 복사
   userInfo: {      // 2. userInfo 속성을 새로운 객체로 덮어쓰기
     ...originalCart.userInfo, // 3. 원본 userInfo의 모든 속성을 펼쳐 넣고
+     testObject : {// 중첩된 객체2
+        ..originalCart.userInfo.testObject
+            name2 : "test2"
+         }
     grade: 'GOLD'             // 4. 원하는 속성(grade)만 새 값으로 교체
   }
 };
