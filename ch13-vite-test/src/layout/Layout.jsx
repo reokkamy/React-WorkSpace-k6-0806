@@ -10,7 +10,8 @@ const Layout = () => {
   };
 
   const goArticles = () => {
-    navigate('/articles');
+    // replace: true , 페이지 이동시 현재 페이지 기록에 남기지 않습니다.
+    navigate('/articles', { replace: true });
   };
 
   return (
