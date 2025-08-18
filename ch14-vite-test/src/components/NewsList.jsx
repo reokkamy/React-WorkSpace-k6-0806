@@ -28,7 +28,7 @@ const sampleArticle = {
 
 const NewsList = () => {
   //실제 데이터 연동,
-  const [articles, setArticles] = useState(null);
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
 
   //
@@ -40,6 +40,7 @@ const NewsList = () => {
           'https://newsapi.org/v2/top-headlines?country=us&apiKey=2817433b685d41b8af6650bb66142986',
         );
         setArticles(response.data.articles);
+        console.log(response.data);
       } catch (e) {
         console.log(e);
       }
@@ -50,7 +51,6 @@ const NewsList = () => {
 
   return (
     <NewsListBlock>
-      {/*실제 데이터 연동*/}
       {articles.map((article) => (
         <NewsItem key={article.url} article={article} />
       ))}
