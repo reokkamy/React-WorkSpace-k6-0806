@@ -15,7 +15,8 @@ function App() {
   const onClick = async () => {
     try {
       const response = await axios.get(
-        'http://jsonplaceholder.typicode.com/todos/1',
+        // 'http://jsonplaceholder.typicode.com/todos/1',
+        'https://newsapi.org/v2/top-headlines?country=us&apiKey=본인키',
       );
       setData(response.data);
     } catch (e) {
