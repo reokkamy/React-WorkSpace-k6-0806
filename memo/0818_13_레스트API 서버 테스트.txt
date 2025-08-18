@@ -20,7 +20,10 @@ https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b7adb4f
 7)
 데이터 구조,
 샘플
-"articles": [
+{
+  "status": "ok",
+  "totalResults": 57,
+  "articles": [
 //샘플 article
     {
       "source": {

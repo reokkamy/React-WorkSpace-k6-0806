@@ -1,4 +1,6 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import styled from 'styled-components';
 import NewsItem from './NewsItem';
 
@@ -25,13 +27,39 @@ const sampleArticle = {
 };
 
 const NewsList = () => {
+  //실제 데이터 연동,
+  const [articles, setArticles] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  //
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          'https://newsapi.org/v2/top-headlines?country=us&apiKey=본인꺼',
+        );
+        setArticles(response.data.articles);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
   return (
     <NewsListBlock>
-      <NewsItem article={sampleArticle} />
-      <NewsItem article={sampleArticle} />
-      <NewsItem article={sampleArticle} />
-      <NewsItem article={sampleArticle} />
-      <NewsItem article={sampleArticle} />
+      {/*실제 데이터 연동*/}
+      {articles.map((article) => (
+        <NewsItem key={article.url} article={article} />
+      ))}
+
+      {/*<NewsItem article={sampleArticle} />*/}
+      {/*<NewsItem article={sampleArticle} />*/}
+      {/*<NewsItem article={sampleArticle} />*/}
+      {/*<NewsItem article={sampleArticle} />*/}
+      {/*<NewsItem article={sampleArticle} />*/}
     </NewsListBlock>
   );
 };
