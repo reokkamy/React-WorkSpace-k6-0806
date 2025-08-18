@@ -21,6 +21,7 @@ https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b7adb4f
 데이터 구조,
 샘플
 "articles": [
+//샘플 article
     {
       "source": {
         "id": null,
@@ -34,6 +35,7 @@ https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b7adb4f
       "publishedAt": "2025-08-17T04:46:15Z",
       "content": "CHICAGO -- Since Khamzat Chimaev won two fights in 10 days to kick off his UFC career in 2020, a title shot has felt inevitable. Chimaev finally gets that opportunity on Saturday night when he challe… [+1808 chars]"
     },
+    //샘플 article
 
 8) 샘플 데이터에서, 화면에 출력할 내용을 선택,
 부트에서, 데이터 베이스에서 데이터를 다 가져와서, 모두다 화면에 출력을 안하고,
