@@ -37,7 +37,7 @@ const NewsList = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          'https://newsapi.org/v2/top-headlines?country=us&apiKey=본인꺼',
+          'https://newsapi.org/v2/top-headlines?country=us&apiKey=2817433b685d41b8af6650bb66142986',
         );
         setArticles(response.data.articles);
       } catch (e) {
