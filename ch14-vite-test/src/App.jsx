@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import axios from 'axios';
 import NewsList from './components/NewsList.jsx';
+import Categories from './components/Categories.jsx';
 
 function App() {
   const [data, setData] = useState(null);
@@ -39,6 +40,8 @@ function App() {
       {/*    />*/}
       {/*  )}*/}
       {/*</div>*/}
+      {/*카테고리 컴포넌트 추가 */}
+      <Categories />
       <NewsList />
     </>
   );
