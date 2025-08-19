@@ -35,6 +35,11 @@ const categories = [
     name: 'general',
     text: '일반',
   },
+  // 공공데이터  추가작업1
+  {
+    name: 'busanAtt',
+    text: '부산명소',
+  },
 ];
 
 // css 작업,
