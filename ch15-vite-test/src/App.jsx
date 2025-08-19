@@ -1,6 +1,7 @@
 import './App.css';
 import ColorBox from './components/ColorBox.jsx';
 import ColorContext, { ColorProvider } from './contexts/color.jsx';
+import SetColors from './components/SetColors.jsx';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       {/*방법2*/}
       <ColorProvider>
         <div>
+          <SetColors />
           <ColorBox />
         </div>
       </ColorProvider>

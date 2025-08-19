@@ -10,6 +10,7 @@ const ColorBox = () => {
       {/*<ColorContext.Consumer>*/}
       {/*방법2*/}
       <ColorConsumer>
+        {/*전역 저장소에서, 색깔 상태를 꺼내서 사용했고*/}
         {(value) => (
           <>
             <div
