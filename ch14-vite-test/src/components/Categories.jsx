@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const categories = [
   {
@@ -37,6 +38,7 @@ const categories = [
 ];
 
 // css 작업,
+
 const CategoriesBlock = styled.div`
   display: flex;
   padding: 1rem;
@@ -50,7 +52,9 @@ const CategoriesBlock = styled.div`
 `;
 
 // css 작업 2
-const Category = styled.div`
+// NavLink 변경 전
+// const Category = styled.div`
+const Category = styled(NavLink)`
   font-size: 1.125rem;
   cursor: pointer;
   white-space: pre;
@@ -63,30 +67,34 @@ const Category = styled.div`
   }
 
   // 부모로부터 전달 받은 props 객체 안에서, 조건부 렌더링 가능.
-  ${(props) =>
-    props.active &&
-    css`
-      font-weight: 600;
-      border-bottom: 2px solid #22b8cf;
-      color: #22b8cf;
-      &:hover {
-        color: #3bc9db;
-      }
-    `}
 
+  &.active {
+    font-weight: 600;
+    border-bottom: 2px solid #22b8cf;
+    color: #22b8cf;
+
+    &:hover {
+      color: #3bc9db;
+    }
+  }
   & + & {
     margin-left: 1rem;
   }
 `;
 //부모로부터 전달 받은 props 를 사용하기.
-const Categories = ({ onSelect, category }) => {
+// const Categories = ({ onSelect, category }) => {
+const Categories = () => {
   return (
     <CategoriesBlock>
       {categories.map((c) => (
         <Category
           key={c.name}
-          active={category === c.name}
-          onClick={() => onSelect(c.name)}
+          // NavLink 사용 전
+          // active={category === c.name}
+          // onClick={() => onSelect(c.name)}
+
+          className={({ isActive }) => (isActive ? 'active' : undefined)}
+          to={c.name === 'all' ? '/' : `/${c.name}`}
         >
           {c.text}
         </Category>
