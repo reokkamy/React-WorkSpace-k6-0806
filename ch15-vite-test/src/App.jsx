@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import ColorBox from './components/ColorBox.jsx';
+import ColorContext, { ColorProvider } from './contexts/color.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1 className="react">ch15 ContextAPI 전역 저장소 연습</h1>
+      <h2>1 전역 저장소 설정, 가져와서 , 사용하는 예1</h2>
+      {/*전역 저장소 설저에서, 값의 초기값을 변경하는 세터랑 비슷함*/}
+      {/*방법1*/}
+      {/*<ColorContext.Provider value={{ color: 'green' }}>*/}
+      {/*방법2*/}
+      <ColorProvider>
+        <div>
+          <ColorBox />
+        </div>
+      </ColorProvider>
+      {/*방법2*/}
+      {/*방법1*/}
+      {/*</ColorContext.Provider>*/}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
