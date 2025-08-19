@@ -15,7 +15,7 @@ https://newsapi.org/v2/top-headlines?country=us&apiKey=b7adb4f936494b3bac6
 6) 특정 카테고리 뉴스 불러오기.
 가능한 카테고리 종류,
 business, entertainment, general, health, science, sports, technology.
-https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b7adb4f936494b3bac6
+https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=본인꺼
 
 7)
 데이터 구조,
