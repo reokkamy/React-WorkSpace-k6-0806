@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import styled from 'styled-components';
 import NewsItem from './NewsItem';
+import usePromise from '../lib/usePromise.jsx';
 
 //css 작업
 const NewsListBlock = styled.div`
@@ -17,53 +18,40 @@ const NewsListBlock = styled.div`
     padding-right: 1rem;
   }
 `;
-// 더미 샘플 데이터 이용.
-// const sampleArticle = {
-//   title: '제목',
-//   description: '내용',
-//   url: 'http://example.com/',
-//   urlToImage:
-//     'https://sportshub.cbsistatic.com/i/r/2025/08/16/253debd9-29a2-48cd-8b31-501631451ee8/thumbnail/1200x675/db792d9aa7d3d3d9326347b93bd6439c/dricus-khamzat-weighins.jpg',
-// };
 
 const NewsList = ({ category }) => {
   //실제 데이터 연동,
-  const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // 커스텀 훅스 사용하기전, -> 리팩토링 하기전,
+  // NewsList_backup2.jsx , 파일 참고,
 
-  //
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        // category 의 값에 따라, url 주소가 동적으로 변경하는 코드로 작성.
-        //https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=본인꺼
-        const query = category === 'all' ? '' : `&category=${category}`;
-        const response = await axios.get(
-          // 'https://newsapi.org/v2/top-headlines?country=us&apiKey=본인꺼',
-          `https://newsapi.org/v2/top-headlines?country=us${query}&apiKey=b7adb4f936494b3bac62f446ab7686cb`,
-        );
-        setArticles(response.data.articles);
-        console.log(response.data);
-      } catch (e) {
-        console.log(e);
-      }
-      setLoading(false);
-    };
-    fetchData();
+  const [loading, response, error] = usePromise(() => {
+    const query = category === 'all' ? '' : `&category=${category}`;
+    return axios.get(
+      `https://newsapi.org/v2/top-headlines?country=us${query}&apiKey=b7adb4f936494b3bac62f446ab7686cb`,
+    );
   }, [category]);
+
+  // 대기 중
+  if (loading) {
+    return <NewsListBlock>대기중입니다.</NewsListBlock>;
+  }
+  // response 값이 설정이 안됐을 경우,
+  if (!response) {
+    return null;
+  }
+
+  // 에러가 발생할수도 있음.
+  if (error) {
+    return <NewsListBlock>에러 발생</NewsListBlock>;
+  }
+  // 정상 값을 받을 때.
+  const { articles } = response.data;
 
   return (
     <NewsListBlock>
       {articles.map((article) => (
         <NewsItem key={article.url} article={article} />
       ))}
-
-      {/*<NewsItem article={sampleArticle} />*/}
-      {/*<NewsItem article={sampleArticle} />*/}
-      {/*<NewsItem article={sampleArticle} />*/}
-      {/*<NewsItem article={sampleArticle} />*/}
-      {/*<NewsItem article={sampleArticle} />*/}
     </NewsListBlock>
   );
 };
