@@ -1,0 +1,13 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.react {
+    background: #008cff;
+    color: #e8dddd;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 16px;
+}
