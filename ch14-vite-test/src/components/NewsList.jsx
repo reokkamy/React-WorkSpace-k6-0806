@@ -45,11 +45,17 @@ const NewsList = ({ category }) => {
         );
     }
     // 동네 예보 API
-    else if (category === 'busanWeather') {
-      return axios.get(
-        `https://apis.data.go.kr/6260000/WeatherService/getWeatherKr?serviceKey=WpZMbiL8V%2FK0fsPY%2BLrv3CAmv9bYQZlIaSb2wM4JQ26YOraocdJOCvXhV7m%2FN%2FgW6b4u5II%2Fdu5rpgm6cjnN7w%3D%3D&numOfRows=100&pageNo=1&resultType=json`,
-      );
-    }
+       else if (category === 'busanWeather') {
+             // OpenWeather: 부산 현재 날씨 (섭씨, 한국어)
+                 return axios.get('https://api.openweathermap.org/data/2.5/weather', {
+                   params: {
+                     q: 'Busan,KR',                          // 또는 { lat: 35.1796, lon: 129.0756 }
+                        appid: '673fb3be145ed335010b89f6ffe4c89f',
+                       units: 'metric',
+                         lang: 'kr',
+                       },
+             });
+           }
     // 기본값: 맛집 정보로 설정
     else {
       return axios.get(
@@ -88,9 +94,9 @@ const NewsList = ({ category }) => {
       data = d.getPubToiletList?.item
           ?? d.response?.body?.items?.item
           ?? [];
-  } else if (category === 'busanWeather') {
-    data = response.data.getWeatherKr?.item || [];
-  } else {
+       } else if (category === 'busanWeather') {
+         data = [response.data]; // ← 한 건이라 배열로 감싸기
+       } else {
     // 기본값: 맛집 데이터
     data = response.data.getFoodKr?.item || [];
   }
