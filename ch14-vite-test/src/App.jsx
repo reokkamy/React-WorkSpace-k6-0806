@@ -12,7 +12,7 @@ function App() {
   // const onSelect = useCallback((category) => setCategory(category), []);
   return (
     <div>
-      <h1 className="react">ch14 REST API 연결 연습</h1>
+      <h1 className="react">부산 정보 알리미</h1>
       {/*라우팅 전*/}
       {/*<Categories category={category} onSelect={onSelect} />*/}
       {/*<NewsList category={category} />*/}
