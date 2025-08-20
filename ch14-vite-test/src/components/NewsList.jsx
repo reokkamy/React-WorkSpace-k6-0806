@@ -38,11 +38,11 @@ const NewsList = ({ category }) => {
         `https://apis.data.go.kr/6260000/FestivalService/getFestivalKr?serviceKey=WpZMbiL8V%2FK0fsPY%2BLrv3CAmv9bYQZlIaSb2wM4JQ26YOraocdJOCvXhV7m%2FN%2FgW6b4u5II%2Fdu5rpgm6cjnN7w%3D%3D&numOfRows=100&pageNo=1&resultType=json`,
       );
     }
-    // 미세먼지 경보 API
+
     else if (category === 'busanDust') {
-      return axios.get(
-        `https://apis.data.go.kr/6260000/DustService/getDustKr?serviceKey=WpZMbiL8V%2FK0fsPY%2BLrv3CAmv9bYQZlIaSb2wM4JQ26YOraocdJOCvXhV7m%2FN%2FgW6b4u5II%2Fdu5rpgm6cjnN7w%3D%3D&numOfRows=100&pageNo=1&resultType=json`,
-      );
+        return axios.get(
+            `https://apis.data.go.kr/3330000/HeaundaePubToiletInfoService/getPubToiletList?serviceKey=WpZMbiL8V%2FK0fsPY%2BLrv3CAmv9bYQZlIaSb2wM4JQ26YOraocdJOCvXhV7m%2FN%2FgW6b4u5II%2Fdu5rpgm6cjnN7w%3D%3D&numOfRows=50&pageNo=1&resultType=json`
+        );
     }
     // 동네 예보 API
     else if (category === 'busanWeather') {
@@ -82,8 +82,12 @@ const NewsList = ({ category }) => {
     data = response.data.getFoodKr?.item || [];
   } else if (category === 'busanFestival') {
     data = response.data.getFestivalKr?.item || [];
-  } else if (category === 'busanDust') {
-    data = response.data.getDustKr?.item || [];
+  }  else if (category === 'busanDust') {
+      // 해운대구 공중화장실 파싱
+      const d = response.data;
+      data = d.getPubToiletList?.item
+          ?? d.response?.body?.items?.item
+          ?? [];
   } else if (category === 'busanWeather') {
     data = response.data.getWeatherKr?.item || [];
   } else {

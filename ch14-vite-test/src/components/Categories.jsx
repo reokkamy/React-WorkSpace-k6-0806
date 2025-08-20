@@ -20,7 +20,7 @@ const categories = [
   },
   {
     name: 'busanDust',
-    text: '미세먼지',
+    text: '화장실 정보',
     icon: '🌫️',
   },
   {
